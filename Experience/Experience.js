@@ -42,7 +42,9 @@ export default class Experience {
     this.renderer.resize();
   }
   update() {
+    this.preloader.update();
     this.camera.update();
+    this.world.update();
     this.renderer.update();
   }
 }

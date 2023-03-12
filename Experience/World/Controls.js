@@ -24,6 +24,8 @@ export default class Controls {
 
     GSAP.registerPlugin(ScrollTrigger);
 
+    document.querySelector(".page").style.overflow = "visible";
+
     this.setSmoothScroll();
     this.setScrollTringger();
   }
@@ -80,8 +82,6 @@ export default class Controls {
     ScrollTrigger.matchMedia({
       //Desktop
       "(min-width: 969px)": () => {
-        console.log("fired deskTop");
-
         this.room.scale.set(0.22, 0.22, 0.22);
         this.rectLight.width = 1;
         this.rectLight.height = 1;
@@ -113,10 +113,10 @@ export default class Controls {
             this.room.position,
             {
               x: () => {
-                return 1;
+                return -2;
               },
               z: () => {
-                return this.sizes.height * 0.0032;
+                return this.sizes.height * 0.0064;
               },
             },
             "same"
@@ -150,13 +150,11 @@ export default class Controls {
           },
         }).to(this.camera.orthographicCamera.position, {
           y: -0.5,
-          x: -2.1,
+          x: -5.1,
         });
       },
 
       "(max-width: 968px)": () => {
-        console.log("fired mobile");
-
         // Resets
         this.room.scale.set(0.14, 0.14, 0.14);
         this.room.position.set(0, 0, 0);
